@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<button type="button" ng-click="myFilter={decade}" class="btn btn-primary">All</button>
+				<button type="button" ng-click="myFilter={decade: 1960}" class="btn btn-primary">60</button>
+				<button type="button" ng-click="myFilter={decade: '1970'}" class="btn btn-primary">70</button>
+				<button type="button" ng-click="myFilter={decade: 1980}" class="btn btn-primary">80</button>
+				<button type="button" ng-click="myFilter={decade: 1990}" class="btn btn-primary">90</button>
+			</div>
+			<div class="col-md-6">
+				<input type="text" ng-model="nameFilter" class="form-control" placeholder="group name"></input>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<!-- GALLERY -->
+<div class="container-fluid">
+	<div class="row">
+		<div ng-repeat="band in bands | filter: myFilter | filter: {name: nameFilter}" class="description col-md-4 thumb">
+			<div class="thumbnail">
+				<a href="#/views/{{band.name}}"><img  id="productView" ng-src="{{band.image}}"></a>	
+				<div>
+					<div class="caption">
+						<h3>{{band.name | uppercase}}</h3>
+						<p>Canciones:</p>
+						<ul>
+							<li ng-repeat="song in band.songs">{{song}}</li>	
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>

@@ -1,0 +1,20 @@
+<div class="row">
+	<div ng-repeat="band in bands | filter: {name: filtro}" class="col-md-12">
+		<mb-picture></mb-picture>
+		<div class="thumbnail"><img class="group" src="{{band.image}}">
+				<div class="caption">
+					<h3>{{band.name}}</h3>
+						<ul>
+							<li ng-repeat="song in band.songs">{{song}}</li>
+						</ul>
+				</div>
+			</img>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
